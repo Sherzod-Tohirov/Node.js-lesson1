@@ -1,0 +1,73 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000000ac url("../public/bg1.jpg") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode:darken;
+  font-family: sans-serif;
+}
+
+.posts-title {
+  text-align: center;
+  font-size: 64px;
+  color: lime;
+  letter-spacing: 0.3rem;
+  font-weight: 600;
+}
+
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 3rem;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.post-card {
+  max-width: 500px;
+  padding: 1rem;
+  border: 2px dotted #fff;
+  border-radius: 8px;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.274);
+  backdrop-filter: blur(6.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: 0.4s ease;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+
+.post-card:hover {
+  box-shadow: 0 4px 30px rgba(14, 219, 14, 0.55);
+  transform: scale(1.04);
+  cursor: pointer;
+}
+
+
+.post-title {
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: 0.1rem;
+  color: limegreen;
+}
+
+.post-desc {
+  font-size: 20px;
+  color: #fff;
+  line-height: 150%;
+  letter-spacing: 0.05rem;
+}
+
+.loader-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
