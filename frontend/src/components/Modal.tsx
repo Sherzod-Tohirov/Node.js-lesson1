@@ -1,9 +1,16 @@
+import { useEffect, useRef } from "react";
 import { ModalType } from "../utils/types";
 import { IoClose } from "react-icons/io5";
-export default function Modal({title, children, onClose, onSubmit}: ModalType) {
+export default function Modal({title, children, open, onClose, onSubmit}: ModalType) {
+    const modalRef = useRef<HTMLDialogElement | null>(null);
+    useEffect(() => {
+        if(modalRef.current) {
+            open ? modalRef.current.showModal() : modalRef.current.close();
+        }
+    }, [open]);
     return (
         <>
-           <dialog className="modal" id="modal">
+           <dialog className="modal" id="modal" ref={modalRef}>
               <div className="modal-wrapper">
                   <div className="modal-header">
                    <h3 className="modal-title">{title}</h3>
@@ -20,7 +27,6 @@ export default function Modal({title, children, onClose, onSubmit}: ModalType) {
                   </div>
               </div>
            </dialog>
-
         </>
     )
 }

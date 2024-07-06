@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { FormEvent, ReactNode } from "react";
 
 export interface Post {
     id: number;
@@ -9,6 +9,7 @@ export interface Post {
 export interface ModalType {
     title: ReactNode | string;
     children: ReactNode;
+    open: boolean;
     onClose: () => void;
-    onSubmit: () => void;
+    onSubmit: (e: FormEvent) => void;
 }
