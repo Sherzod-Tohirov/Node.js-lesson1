@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Node.js",
+    "desc": "Node. js is a server-side platform based on the JavaScript Engine in Google Chrome. It was created by Ryan Dahl in 2009, and the most recent version is v0. 10.36. This is a cross-platform runtime environment for developing server-side and networking applications that are open source."
+  },
+  {
+    "id": 2,
+    "title": "Express.js",
+    "desc": "Express is a node js web application framework that provides broad features for building web and mobile applications. It is used to build a single page, multipage, and hybrid web application. It's a layer built on the top of the Node js that helps manage servers and routes."
+  },
+  {
+    "id": 3,
+    "title": "Nodemon",
+    "desc": "Nodemon is a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected. nodemon does not require any additional changes to your code or method of development. nodemon is a replacement wrapper for node ."
+  },
+  {
+    "id": 4,
+    "title": "MERN STACK",
+    "desc": "The MERN stack is a collection of technologies that help developers build robust and scalable web applications using JavaScript. The acronym “MERN” stands for MongoDB, Express, React, and Node. js, with each component playing a role in the development process."
+  },
+  {
+    "id": 5,
+    "title": "My SQL",
+    "desc": "MySQL is an open-source Relational Database Management System (RDBMS) that enables users to store, manage, and retrieve structured data efficiently. It is widely used for various applications, from small-scale projects to large-scale websites and enterprise-level solutions."
+  }
+]
