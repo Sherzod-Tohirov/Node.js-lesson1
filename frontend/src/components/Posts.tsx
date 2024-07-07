@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { Post } from "../utils/types";
 import PostCard from "./PostCard";
 import Loading from "./Loading";
+import PostForm from "./PostForm";
 
 interface newPost {
   title: string;
@@ -11,14 +12,13 @@ interface newPost {
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
-  const titleRef = useRef<HTMLFormElement | null>(null);
-  const descRef = useRef<HTMLFormElement | null>(null);
+  const postFormInputRef = useRef<HTMLFormElement | null>(null);
   const handlePostSubmit = useCallback((e: FormEvent) => {
     e.preventDefault();
-    if (titleRef.current && descRef.current) {
+    if (postFormInputRef.current ) {
       const newPost: newPost = {
-        title: titleRef.current.value,
-        desc: descRef.current.value,
+        title: postFormInputRef.current.getTitleValue(),
+        desc: postFormInputRef.current.getDescValue(),
       };
       console.log(newPost);
 
@@ -60,22 +60,7 @@ export default function Posts() {
   return (
     <>
       <h1 className="posts-title">Posts</h1>
-      <form className="posts-form" onSubmit={handlePostSubmit}>
-        <input
-          ref={titleRef}
-          className="posts-input posts-title-input"
-          type="text"
-          placeholder="Enter post title"
-          required
-        />
-        <textarea
-          ref={descRef}
-          className="posts-input posts-desc-input"
-          placeholder="Enter post description..."
-          required
-        ></textarea>
-        <button className="posts-form-btn">Add new post</button>
-      </form>
+      <PostForm handleSubmit = {handlePostSubmit} ref = {postFormInputRef} />
       <ul className="post-list">
         {posts?.length ? (
           posts.map((post: Post) => <PostCard key={post.id} post={post} />)

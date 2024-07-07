@@ -1,7 +1,9 @@
 const fs = require("fs");
 
-function writeDataToFile(data, filePath) {
-    const jsonData = JSON.stringify(data, null, 2);
+function writeDataToFile(data, filePath, db = "posts") {
+    const fileData = readDataFromFile(filePath);
+    fileData[db] = data;
+    const jsonData = JSON.stringify(fileData, null, 2);
     fs.writeFileSync(filePath, jsonData);
 }
 

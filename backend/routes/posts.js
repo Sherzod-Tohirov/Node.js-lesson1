@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const { writeDataToFile, readDataFromFile } = require("../utils/functions");
 const router = express.Router();
 const dbPath = path.join(__dirname, '../db/db.json');
-  const {posts}  = readDataFromFile(dbPath);
+  const {posts} = readDataFromFile(dbPath);
   router.get("/", (req, res) => {
     const query = req.query;
     if(query?.limit) {

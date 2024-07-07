@@ -176,3 +176,7 @@ body {
 .delete-btn:hover {
   color: #f00;
 }
+
+.modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.671);
+}
