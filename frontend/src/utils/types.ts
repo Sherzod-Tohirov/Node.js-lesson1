@@ -1,4 +1,4 @@
-import { FormEvent, ReactNode } from "react";
+import { Dispatch, FormEvent, ReactNode, SetStateAction } from "react";
 
 export interface Post {
     id: number;
@@ -12,4 +12,9 @@ export interface ModalType {
     open: boolean;
     onClose: () => void;
     onSubmit: (e: FormEvent) => void;
+}
+
+export interface PostContextStateType {
+    posts: Post[];
+    setPosts: Dispatch<SetStateAction<Post[]> | []>
 }

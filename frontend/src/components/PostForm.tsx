@@ -31,7 +31,7 @@ const PostForm = forwardRef((props: {handleSubmit: (e: FormEvent) => void, editF
         placeholder="Enter post description..."
         required
       ></textarea>
-      <button className="posts-form-btn">{editForm ? 'Edit post' : 'Add new post'}</button>
+      {!editForm ? <button className="posts-form-btn">Add new post</button> : ""}
     </form>
   );
 });

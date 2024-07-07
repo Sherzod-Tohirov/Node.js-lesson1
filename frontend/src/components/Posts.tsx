@@ -1,9 +1,10 @@
-import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import { FormEvent, useCallback, useContext, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import { Post } from "../utils/types";
 import PostCard from "./PostCard";
 import Loading from "./Loading";
 import PostForm from "./PostForm";
+import { PostsContext } from "../context/PostsContext";
 
 interface newPost {
   title: string;
@@ -11,9 +12,9 @@ interface newPost {
 }
 
 export default function Posts() {
-  const [posts, setPosts] = useState([]);
+  const {posts, setPosts} = useContext(PostsContext);
   const postFormInputRef = useRef<HTMLFormElement | null>(null);
-  const handlePostSubmit = (e: FormEvent) => {
+  const handlePostSubmit = useCallback((e: FormEvent) => {
     e.preventDefault();
     if (postFormInputRef.current) {
       const newPost: newPost = {
@@ -35,16 +36,12 @@ export default function Posts() {
           if (res.status === 201) {
             setPosts(res.data);
             e?.target?.reset();
-            toast.success("New post is added successfully", {
-              autoClose: 3000,
-              position: "bottom-right",
-              theme: "dark",
-            });
+            toast.success("New post is added successfully");
           }
         })
         .catch((err) => console.error(err));
     }
-  };
+  }, []);
   useEffect(() => {
     const response = fetch("http://localhost:8000/api/posts");
     response

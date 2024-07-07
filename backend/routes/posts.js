@@ -40,4 +40,20 @@ const dbPath = path.join(__dirname, '../db/db.json');
         res.send({error: "Something went wrong !"})
   });
 
+  router.put('/:id', (req, res) => {
+        if(req.body) {
+             const id = req.params?.id;
+             const {posts} = readDataFromFile(dbPath);
+             const foundPost = posts.find((post) => post.id === id);
+             if(foundPost) {
+                foundPost.title = req.body.title;
+                foundPost.desc = req.body.desc;
+                writeDataToFile(posts, dbPath);
+                res.status(200).json({status: 200, data: posts});
+             }else {
+                res.status(400).json({error: "Post is not found !", status: 400});
+             }
+        }
+  });
+
 module.exports = router;
