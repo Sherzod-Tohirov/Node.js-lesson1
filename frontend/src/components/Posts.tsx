@@ -13,9 +13,9 @@ interface newPost {
 export default function Posts() {
   const [posts, setPosts] = useState([]);
   const postFormInputRef = useRef<HTMLFormElement | null>(null);
-  const handlePostSubmit = useCallback((e: FormEvent) => {
+  const handlePostSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (postFormInputRef.current ) {
+    if (postFormInputRef.current) {
       const newPost: newPost = {
         title: postFormInputRef.current.getTitleValue(),
         desc: postFormInputRef.current.getDescValue(),
@@ -44,7 +44,7 @@ export default function Posts() {
         })
         .catch((err) => console.error(err));
     }
-  }, []);
+  };
   useEffect(() => {
     const response = fetch("http://localhost:8000/api/posts");
     response
@@ -57,10 +57,11 @@ export default function Posts() {
       })
       .catch((err) => console.error(err));
   }, []);
+  console.log("Posts:", posts);
   return (
     <>
       <h1 className="posts-title">Posts</h1>
-      <PostForm handleSubmit = {handlePostSubmit} ref = {postFormInputRef} />
+      <PostForm handleSubmit = {handlePostSubmit} ref = {postFormInputRef} editForm={undefined} width="normal" />
       <ul className="post-list">
         {posts?.length ? (
           posts.map((post: Post) => <PostCard key={post.id} post={post} />)

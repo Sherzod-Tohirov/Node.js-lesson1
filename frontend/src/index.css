@@ -106,9 +106,17 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 2rem; 
-  max-width: 60%;
+  max-width: 50%;
   margin: 0 auto;
   gap: 2rem;
+}
+
+.wider {
+  max-width: 80%;
+}
+
+.full {
+  max-width: 100%;
 }
 
 .posts-input {
@@ -177,6 +185,88 @@ body {
   color: #f00;
 }
 
+
+.modal {
+  max-width: 50rem;
+  width: 100%;
+  padding: 0;
+  background: #000 url("../public/bg1.jpg") no-repeat center;
+  background-size: cover;
+}
+
 .modal::backdrop {
     background-color: rgba(0, 0, 0, 0.671);
+}
+
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem;
+  background-color: rgba(50, 205, 50, 0.79);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 36px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+}
+
+.modal-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 42px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-close-btn:hover {
+  opacity: 0.7;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-action-btn {
+  width: 50%;
+  padding: 1.4rem;
+  font-size: 18px;
+  font-weight: 300;
+  background-color: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-action-btn:hover {
+  opacity: 0.8;
+}
+
+.cancel-btn {
+  background-color: #f00;
+}
+
+.save-btn {
+  background-color:limegreen;
 }

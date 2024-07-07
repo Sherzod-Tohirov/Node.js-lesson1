@@ -14,7 +14,7 @@ export default function Modal({title, children, open, onClose, onSubmit}: ModalT
               <div className="modal-wrapper">
                   <div className="modal-header">
                    <h3 className="modal-title">{title}</h3>
-                   <button className="modal-close-btn">
+                   <button className="modal-close-btn" onClick={onClose}>
                        <IoClose />
                    </button>
                   </div>
@@ -22,8 +22,8 @@ export default function Modal({title, children, open, onClose, onSubmit}: ModalT
                     {children}
                   </div>
                   <div className="modal-footer">
-                     <button onClick={onClose} className="modal-action-btn">Cancel</button>
-                     <button onClick={onSubmit} className="modal-action-btn delete-btn">Save</button>
+                     <button onClick={onClose} className="modal-action-btn cancel-btn">Cancel</button>
+                     <button onClick={onSubmit} className="modal-action-btn save-btn">Save</button>
                   </div>
               </div>
            </dialog>

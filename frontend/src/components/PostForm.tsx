@@ -1,7 +1,8 @@
 import { FormEvent, forwardRef, useImperativeHandle, useRef } from "react";
 import { Post } from "../utils/types";
 
-const PostForm = forwardRef((handleSubmit: (e: FormEvent) => void, ref, editForm: null | Post = null) => {
+const PostForm = forwardRef((props: {handleSubmit: (e: FormEvent) => void, editForm: undefined | Post, width: 'full' | 'wider' | 'normal'}, ref) => {
+  const {handleSubmit, editForm, width} = props;
   const titleRef = useRef<HTMLInputElement>(null); 
   const descRef = useRef<HTMLTextAreaElement>(null); 
   useImperativeHandle(ref, () => ({
@@ -14,7 +15,7 @@ const PostForm = forwardRef((handleSubmit: (e: FormEvent) => void, ref, editForm
   }))
 
   return (
-    <form className="posts-form" onSubmit={(e) => handleSubmit(e)}>
+    <form className={`posts-form ${width}`} onSubmit={handleSubmit}>
       <input
         ref={titleRef}
         defaultValue={editForm ? editForm.title : ""}
@@ -30,7 +31,7 @@ const PostForm = forwardRef((handleSubmit: (e: FormEvent) => void, ref, editForm
         placeholder="Enter post description..."
         required
       ></textarea>
-      <button className="posts-form-btn">Add new post</button>
+      <button className="posts-form-btn">{editForm ? 'Edit post' : 'Add new post'}</button>
     </form>
   );
 });

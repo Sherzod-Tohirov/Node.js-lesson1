@@ -21,7 +21,7 @@ export default function PostCard({ post }: { post: Post }) {
         </div>
         <h1 className="post-title">{post.title}</h1>
         <p className="post-desc">{post.desc}</p>
-        <EditModal open={editModal} setOpen={setEditModal} />
+        <EditModal open={editModal} setOpen={setEditModal} post={post} />
       </li>
     </>
   );
