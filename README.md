@@ -13,14 +13,13 @@ This is a fullstack CRUD (Create, Read, Update, Delete) application built using 
 
 ### Frontend
 - React
-- Axios (for HTTP requests)
-- Bootstrap (for styling)
+- FETCH (for HTTP requests)
+- CSS (for styling)
 
 ### Backend
 - Node.js
 - Express.js
-- MongoDB (as the database)
-- Mongoose (for MongoDB object modeling)
+- File (as the database)
 - dotenv (for environment variables)
 
 ## Prerequisites
