@@ -33,5 +33,5 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/fullstack-crud-app.git
-   cd fullstack-crud-app
+   git clone https://github.com/Sherzod-Tohirov/fullstack-crud-app.git
+   cd Node.js/lesson1
